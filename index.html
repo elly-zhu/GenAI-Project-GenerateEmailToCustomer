@@ -10,12 +10,10 @@
 </head>
 
 <body>
-    <div class="stick">
-        <div class="right">
-            <span>View <a href="/db" target="_blank">Product Catalog</a> from products_db.json</span>
-        </div>
+    <div class="stickSettings">
         <div class="center container">
-            <p>Select Response Language:</p>
+            <span>View <a href="/db" target="_blank">Product Catalog</a> from products_db.json</span>
+            <div>Select Response Language:</div>
             <select id="language" name="language" class="form-select form-select-sm" aria-label="Small select example">
                 <option selected value="English">English</option>
                 <option value="Chinese">Chinese</option>
@@ -24,51 +22,53 @@
             </select>
         </div>
     </div>
-    <div class="container">
-        <div class="center">
-            <img src="/static/qa.png" width="42px" />
-            <h2>Ask me about product</h2>
+    <div class="main">
+        <div class="container">
+            <div class="center">
+                <img src="/static/writing_email.png" width="42px"/>
+                <h2>Email Generator</h2>
+            </div>
+            <form id="commentForm" action="javascript:void(0)"  method="post">
+                <div class="flex-container">
+                    <div class="col">
+                        <p>Enter a comment about the product:</p>
+                        <textarea id="comment" name="comment" rows="10" cols="50" required></textarea>
+                    </div>
+                    <div class="col">
+                        <p>Output of the Email Draft</p>
+                        <div class="loader hide"></div>
+                        <div id="emailPanel" class="content"></div>
+                    </div>
+                </div>
+                <div class="center mt-md">
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
         </div>
-        <form id="questionForm" action="javascript:void(0)"  method="post">
-            <div class="flex-container">
-                <div class="col">
-                    <p>Enter a question about the product:</p>
-                    <textarea id="question" name="question" rows="10" cols="50" 
-                    placeholder="Enter a question relevant to the product in the products catalog" required>Tell me about TechPro Ultrabook?</textarea>
-                </div>
-                <div class="col">
-                    <p>Chat History</p>
-                    <div class="loader hide"></div>
-                    <div id="chatPanel" class="content"></div>
-                </div>
-            </div>
-            <div class="center mt-md">
-                <input type="button" onclick=clearChatHistory() value="Reset" />
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
-    </div>
 
-    <div class="container">
-        <div class="center">
-            <img src="/static/writing_email.png" width="42px"/>
-            <h2>Email Generator</h2>
+        <div class="container">
+            <div class="center">
+                <img src="/static/qa.png" width="42px" />
+                <h2>Ask me about product</h2>
+            </div>
+            <form id="questionForm" action="javascript:void(0)"  method="post">
+                <div class="flex-container">
+                    <div class="col">
+                        <p>Enter a question about the product:</p>
+                        <textarea id="question" name="question" rows="10" cols="50" 
+                        placeholder="Enter a question relevant to the product in the products catalog" required>Tell me about TechPro Ultrabook?</textarea>
+                    </div>
+                    <div class="col">
+                        <p>Chat History</p>
+                        <div class="loader hide"></div>
+                        <div id="chatPanel" class="content"></div>
+                    </div>
+                </div>
+                <div class="center mt-md">
+                    <input type="button" onclick=clearChatHistory() value="Reset" />
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
         </div>
-        <form id="commentForm" action="javascript:void(0)"  method="post">
-            <div class="flex-container">
-                <div class="col">
-                    <p>Enter a comment about the product:</p>
-                    <textarea id="comment" name="comment" rows="10" cols="50" required></textarea>
-                </div>
-                <div class="col">
-                    <p>Output of the Email Draft</p>
-                    <div class="loader hide"></div>
-                    <div id="emailPanel" class="content"></div>
-                </div>
-            </div>
-            <div class="center mt-md">
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
     </div>
 </body>

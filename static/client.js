@@ -34,7 +34,8 @@ document
     const chatPanel = document.getElementById("chatPanel");
 
     chatPanel.innerHTML =
-      chatPanel.innerHTML + `User: ${question} (answer in ${language})<br/>`;
+      chatPanel.innerHTML +
+      `User: ${question} (Selected language: ${language})<br/>`;
 
     // Post to ask_question endpoint and handle the response
     console.log(`Calling /answer_questions with ${JSON.stringify(data)}`);
@@ -45,7 +46,6 @@ document
         if (res) {
           chatPanel.innerHTML =
             chatPanel.innerHTML + `System: ${res} <br/><br/>`;
-          questionInputBox.innerHTML = "";
         }
       })
       .catch((error) => {
@@ -91,7 +91,7 @@ document
       });
   });
 
-function clearChatHistory() {
+document.getElementById("clear").addEventListener("click", function (event) {
   const chatPanel = document.getElementById("chatPanel");
   chatPanel.innerHTML = "";
-}
+});

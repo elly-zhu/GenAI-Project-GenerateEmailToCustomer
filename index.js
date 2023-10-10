@@ -45,6 +45,7 @@ async function runChatCompletion({
   console.log("running runChatCompletion..");
 
   try {
+    // console.log({ messages });
     const chatCompletion = await openai.chat.completions.create({
       model,
       messages,
@@ -127,6 +128,7 @@ app.post("/write_emails", async (req, res) => {
         { role: "assistant", content: assistantLanguageContent },
       ],
     });
+
     console.log("Response from runChatCompletion..");
     console.log(email_response);
     res.send({ data: email_response });

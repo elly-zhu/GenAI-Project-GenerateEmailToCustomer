@@ -17,6 +17,10 @@ body {
   justify-content: space-around;
 }
 
+.header_with_loader {
+  line-height: 484px;
+}
+
 .mt-md {
   margin-top: 24px;
 }
@@ -73,8 +77,8 @@ input[type="button"]:hover {
   border: 6px solid #f3f3f3;
   border-radius: 50%;
   border-top: 6px solid #a9a9a9;
-  width: 42px;
-  height: 42px;
+  width: 24px;
+  height: 24px;
   -webkit-animation: spin 1s linear infinite; /* Safari */
   animation: spin 1s linear infinite;
   margin: auto;
@@ -101,4 +105,8 @@ input[type="button"]:hover {
 
 .hide {
   display: none;
+}
+
+#chatPanel {
+  overflow-y: auto;
 }

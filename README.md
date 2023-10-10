@@ -66,8 +66,6 @@ export function form_system_to_write_email_subject(language, wordlimit = 150) {
 
 ### Email Generator Examples
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/24d58783-b604-42a7-8657-f86e82b3102f)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/3914ca41-4712-474a-bbe5-e7b02e6e325c)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/26e42a71-c60c-4057-8b92-15e18c6abe5c)
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/ae4876af-28d0-41ce-8a4d-b6035bc4eded)
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a6a92118-a2c3-453a-8d8e-0fa01bdd1bd8)
 

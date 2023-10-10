@@ -1,10 +1,18 @@
 # GenAI-Project-GenerateEmailToCustomer
 
+### Objectives
+Build a web-based system that can generate customer support emails and answer questions about the provided products using the OpenAI API.
 
-### About
-A Node.js project with OpenAI API integration, multi-language support, and JSON file database integration.
+ - Allow the user to specify the products by providing product data in JSON format.
+ - Allow the user to choose response languages.
+ - Allow the user to enter questions in any language.
+ - Allow the user to generate a draft email.
+ - Allow the user to view chat histories.
 
-The project takes in a JSON-formatted products list and integrates with ChatGPT to generate emails to the customer, as well as generate responses for customers' questions
+### Design Approach
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/c6ef4929-3e0e-4fcd-9ea7-eabcc208eab2)
+
+
 
 ### Preparation
  - OPEN API Key

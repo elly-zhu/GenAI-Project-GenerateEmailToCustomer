@@ -1,5 +1,8 @@
 # GenAI-Project-GenerateEmailToCustomer
 
+### More Details
+https://docs.google.com/presentation/d/1Zy-3FVFw1AjDzwoTLo-BQzhvX0LPrLe4q0g9NmBjFu8/edit?usp=sharing 
+
 ### Objectives
 Build a web-based system that can generate customer support emails and answer questions about the provided products using the OpenAI API.
 

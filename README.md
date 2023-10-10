@@ -11,6 +11,7 @@ Build a web-based system that can generate customer support emails and answer qu
  - Allow the user to enter questions in any language.
  - Allow the user to generate a draft email.
  - Allow the user to view chat histories.
+ - The system searches the product lists based on the user's question, providing relevant product information to ChatGPT for generating specific localized data and enhancing accuracy for the given use case.
 
 ### Design Approach
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/c6ef4929-3e0e-4fcd-9ea7-eabcc208eab2)

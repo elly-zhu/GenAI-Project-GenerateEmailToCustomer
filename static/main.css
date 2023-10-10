@@ -17,10 +17,6 @@ body {
   justify-content: space-around;
 }
 
-.header_with_loader {
-  line-height: 484px;
-}
-
 .mt-md {
   margin-top: 24px;
 }
@@ -109,4 +105,5 @@ input[type="button"]:hover {
 
 #chatPanel {
   overflow-y: auto;
+  margin-bottom: 6px;
 }

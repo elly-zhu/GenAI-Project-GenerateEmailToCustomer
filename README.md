@@ -11,6 +11,7 @@ Build a web-based system that can generate customer support emails and answer qu
  - Allow the user to enter questions in any language.
  - Allow the user to generate a draft email.
  - Allow the user to view chat histories.
+ - The system searches the product lists based on the user's question, providing relevant product information to ChatGPT for generating specific localized data and enhancing accuracy for the given use case.
 
 ### Design Approach
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/c6ef4929-3e0e-4fcd-9ea7-eabcc208eab2)
@@ -28,23 +29,40 @@ Build a web-based system that can generate customer support emails and answer qu
 The project has built-in helper functions to generate relevant and meaningful prompts for openai chat completion function
  - Analyze the user-provided comment; find the product in the product database JSON file that matches the user's commented product; provide the relevant information to ChatGPT
 ```javascript
+
 export function form_assistant_content_about_product(products, userInput) {
   userInput = userInput.replace("?", "");
   const product_name_list = get_product_names(products);
+  const category_key_words = [];
   let relevant_products = [];
   for (let product_name of product_name_list) {
     if (userInput.includes(product_name)) {
       relevant_products.push(products[product_name]);
+      category_key_words.push(products[product_name]?.category);
     }
   }
 
+  let same_category_products = get_products_by_category(
+    products,
+    category_key_words
+  ).map((e) => e.name);
+  console.log(same_category_products);
+
   // remove duplicates in the list
   relevant_products = [...new Set(relevant_products)];
-  let res = `the relavent informations: ` + JSON.stringify(relevant_products);
+
+  let res = `the relavent informations: ${JSON.stringify(relevant_products)} ${
+    same_category_products.length > 1
+      ? ", and other products in the same category are " +
+        same_category_products.join(", ")
+      : "."
+  }`;
 
   // NOTE: THIS CUTS THE RELEVANT DATA, IT WILL AFFECT THE ACCURACY, THE REASON FOR THIS IS TO LIMIT THE TOKEN USED
   // YOU COULD INCREASE THIS LIMIT
-  res = res.substring(0, 1200);
+  res = res.substring(0, 1000);
+  console.log(">>>>");
+  console.log(res);
   return res;
 }
 

@@ -4,27 +4,14 @@ function get_product_names(products) {
   return Object.keys(products);
 }
 
-function get_product_categories(products) {
-  return Object.values(products).map((e) => e.category);
-}
-
-function get_product_by_name(products, name) {
+function get_products_by_category(products, categories) {
   const res = [];
   for (let product of Object.keys(products)) {
-    if (product.includes(name)) {
+    if (categories.includes(products[product].category)) {
       res.push(products[product]);
     }
   }
-  return res;
-}
 
-function get_products_by_category(products, category) {
-  const res = [];
-  for (let product of Object.keys(products)) {
-    if (product.category == category) {
-      res.push(products[product]);
-    }
-  }
   return res;
 }
 
@@ -35,20 +22,35 @@ export function form_user_content(userInput) {
 export function form_assistant_content_about_product(products, userInput) {
   userInput = userInput.replace("?", "");
   const product_name_list = get_product_names(products);
+  const category_key_words = [];
   let relevant_products = [];
   for (let product_name of product_name_list) {
     if (userInput.includes(product_name)) {
       relevant_products.push(products[product_name]);
+      category_key_words.push(products[product_name]?.category);
     }
   }
 
+  let same_category_products = get_products_by_category(
+    products,
+    category_key_words
+  ).map((e) => e.name);
+
   // remove duplicates in the list
   relevant_products = [...new Set(relevant_products)];
-  let res = `the relavent informations: ` + JSON.stringify(relevant_products);
+
+  let res = `the relavent informations: ${JSON.stringify(relevant_products)} ${
+    same_category_products.length > 1
+      ? ", and other products in the same category are " +
+        same_category_products.join(", ")
+      : "."
+  }`;
 
   // NOTE: THIS CUTS THE RELEVANT DATA, IT WILL AFFECT THE ACCURACY, THE REASON FOR THIS IS TO LIMIT THE TOKEN USED
   // YOU COULD INCREASE THIS LIMIT
-  res = res.substring(0, 1200);
+  res = res.substring(0, 1000);
+  console.log(">>>>");
+  console.log(res);
   return res;
 }
 

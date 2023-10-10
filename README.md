@@ -1,5 +1,3 @@
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/94182579-3627-4444-a2a1-7121c6f3f9cc)# GenAI-Project-GenerateEmailToCustomer
-
 ### About
 A Node.js project with OpenAI API integration, multi-language support, and JSON file database integration.
 

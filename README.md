@@ -1,3 +1,6 @@
+# GenAI-Project-GenerateEmailToCustomer
+
+
 ### About
 A Node.js project with OpenAI API integration, multi-language support, and JSON file database integration.
 

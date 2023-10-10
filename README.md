@@ -1,4 +1,4 @@
-# GenAI-Project-GenerateEmailToCustomer
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/94182579-3627-4444-a2a1-7121c6f3f9cc)# GenAI-Project-GenerateEmailToCustomer
 
 ### About
 A Node.js project with OpenAI API integration, multi-language support, and JSON file database integration.
@@ -70,3 +70,5 @@ export function form_system_to_write_email_subject(language, wordlimit = 150) {
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a6a92118-a2c3-453a-8d8e-0fa01bdd1bd8)
 
 ### Chatbot Examples
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a4a8e1dd-3bbc-4486-abb0-b909cc25935e)
+

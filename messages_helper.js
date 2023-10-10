@@ -54,6 +54,9 @@ export function form_assistant_content_about_product(products, userInput) {
   // remove duplicates in the list
   relevant_products = [...new Set(relevant_products)];
   let res = `the relavent informations: ` + JSON.stringify(relevant_products);
+  
+  # NOTE: THIS CUTS THE RELEVANT DATA, IT WILL AFFECT THE ACCURACY, THE REASON FOR THIS IS TO LIMIT THE TOKEN USED
+  # A BETTER WAY TO DO THIS IS TO INCREASE THE MAX TOKEN OR IMPROVE THE DATA MATCHING 
   res = res.substring(0, 1000);
   return res;
 }

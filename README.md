@@ -73,3 +73,7 @@ export function form_system_to_write_email_subject(language, wordlimit = 150) {
 ### Chatbot Examples
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a4a8e1dd-3bbc-4486-abb0-b909cc25935e)
 
+### Demo recording
+[emailGeneratorDemo.webm](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/1ce1b031-b4eb-4e21-98e2-504dbca2c1ec)
+
+

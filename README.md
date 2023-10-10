@@ -1,10 +1,21 @@
 # GenAI-Project-GenerateEmailToCustomer
 
+### More Details
+https://docs.google.com/presentation/d/1Zy-3FVFw1AjDzwoTLo-BQzhvX0LPrLe4q0g9NmBjFu8/edit?usp=sharing 
 
-### About
-A Node.js project with OpenAI API integration, multi-language support, and JSON file database integration.
+### Objectives
+Build a web-based system that can generate customer support emails and answer questions about the provided products using the OpenAI API.
 
-The project takes in a JSON-formatted products list and integrates with ChatGPT to generate emails to the customer, as well as generate responses for customers' questions
+ - Allow the user to specify the products by providing product data in JSON format.
+ - Allow the user to choose response languages.
+ - Allow the user to enter questions in any language.
+ - Allow the user to generate a draft email.
+ - Allow the user to view chat histories.
+
+### Design Approach
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/c6ef4929-3e0e-4fcd-9ea7-eabcc208eab2)
+
+
 
 ### Preparation
  - OPEN API Key
@@ -20,27 +31,29 @@ The project has built-in helper functions to generate relevant and meaningful pr
 export function form_assistant_content_about_product(products, userInput) {
   userInput = userInput.replace("?", "");
   const product_name_list = get_product_names(products);
-  const categories_list = get_product_categories(products);
   let relevant_products = [];
-  for (let word of userInput.split(" ")) {
-    for (let product_name of product_name_list) {
-      if (product_name.includes(word)) {
-        relevant_products.push(get_product_by_name(products, word));
-      }
-    }
-    if (categories_list.includes(word)) {
-      for (let category of categories_list) {
-        if (category.includes(word)) {
-          relevant_products.concat(get_products_by_category(products, word));
-        }
-      }
+  for (let product_name of product_name_list) {
+    if (userInput.includes(product_name)) {
+      relevant_products.push(products[product_name]);
     }
   }
+
   // remove duplicates in the list
   relevant_products = [...new Set(relevant_products)];
-  const res = `the relavent informations: ` + JSON.stringify(relevant_products);
+  let res = `the relavent informations: ` + JSON.stringify(relevant_products);
+
+  // NOTE: THIS CUTS THE RELEVANT DATA, IT WILL AFFECT THE ACCURACY, THE REASON FOR THIS IS TO LIMIT THE TOKEN USED
+  // YOU COULD INCREASE THIS LIMIT
+  res = res.substring(0, 1200);
   return res;
 }
+
+export function form_assistant_content_about_response_language(language) {
+  const res = `Please provide answer in language ${language}`;
+
+  return res;
+}
+
 ```
 
 - Provide information about the user's language preferences to instruct ChatGPT to respond in a specific language setting

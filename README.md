@@ -7,9 +7,10 @@ The project takes in a JSON-formatted products list and integrates with ChatGPT 
 
 ### Preparation
  - OPEN API Key
-   - ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/03aaef29-76d5-4c4d-92d6-d4bb88572efa)
+   - ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/c47b795f-12c1-4ea9-96b6-53b0187e6ffb)
  - Product json file
-   - ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/71b4b543-e560-440f-a436-750a2affc5d3)
+   - ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/00f8a2ec-ce37-42fd-86bc-44a5715731b1)
+
 
 ### Implementation
 The project has built-in helper functions to generate relevant and meaningful prompts for openai chat completion function
@@ -63,10 +64,9 @@ export function form_system_to_write_email_subject(language, wordlimit = 150) {
 ```
 
 ### Email Generator Examples
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/4192d326-e748-4dc3-87ab-15abc1a5ffe5)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/73c2be57-2a2f-4e44-b2e4-851fe636c29a)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/863a0d94-9a90-4c0b-9de6-6c8d23cf243d)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/eee5deb0-2d43-4bbf-bad2-19cd457810a8)
-
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/3914ca41-4712-474a-bbe5-e7b02e6e325c)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/26e42a71-c60c-4057-8b92-15e18c6abe5c)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/ae4876af-28d0-41ce-8a4d-b6035bc4eded)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a6a92118-a2c3-453a-8d8e-0fa01bdd1bd8)
 
 ### Chatbot Examples

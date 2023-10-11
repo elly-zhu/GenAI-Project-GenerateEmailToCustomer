@@ -129,9 +129,9 @@ export function form_system_to_generate_random_product_comment(
 ```
 
 ### Email Generator Examples
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/0c7ffbf8-46bd-4caa-a441-3152cc86e20d)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/1e9d15ab-d36d-4e59-b310-bf758ab0a45b)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/2e7ef86c-bb81-42a4-89dc-073dc5ccaae3)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/8daa4bac-a93f-4866-959b-4dcafe7a4ff6)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/d80ede2f-9cc9-4d89-9d38-7d937b745021)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/58347dc6-050a-44c7-adab-d75ea0436e83)
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/e45d279d-d9ca-4a19-b5ff-b01b0b4142ad)
 
 

@@ -30,18 +30,33 @@
             </div>
             <form id="commentForm" action="javascript:void(0)"  method="post">
                 <div class="flex-container">
-                    <div class="col">
+                    <div class="col input">
                         <p>Enter a comment about the product:</p>
                         <textarea id="comment" name="comment" rows="10" cols="50" required></textarea>
+                        <div name="generateComment">
+                            <div class="loader hide"></div>
+                            <a href="javascript:void(0)" id="generate_comment_anchor">Generate a random comment from products in</a>
+                            <select id="gen_language" name="gen_language" class="form-select form-select-sm" aria-label="Small select example">
+                                <option selected value="English">English</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="French">French</option>
+                            </select>
+                            <div><small>You can provide a product name as the seed in the comment input box</small></div>
+                        </div>
+                        <div>
+
+                        </div>
                     </div>
-                    <div class="col">
+                    <div class="col output">
                         <p>Output of the Email Draft</p>
                         <div class="loader hide"></div>
                         <div id="emailPanel" class="content"></div>
                     </div>
                 </div>
                 <div class="center mt-md">
-                    <input type="submit" value="Submit" />
+                    <input type="button" id="comment_clear" value="Reset" />
+                    <input type="submit" value="Draft Email" />
                 </div>
             </form>
         </div>
@@ -65,7 +80,7 @@
                     </div>
                 </div>
                 <div class="center mt-md">
-                    <input type="button" id="clear" value="Reset" />
+                    <input type="button" id="chat_clear" value="Reset" />
                     <input type="submit" value="Submit" />
                 </div>
             </form>

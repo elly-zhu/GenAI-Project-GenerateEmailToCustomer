@@ -10,6 +10,8 @@ import {
   form_assistant_content_about_response_language,
   form_system_to_write_email_subject,
   system_as_assistant_content,
+  form_system_to_perform_sentiment_analysis,
+  form_system_to_generate_random_product_comment,
 } from "./messages_helper.js";
 import * as products_db from "./products_db.json" assert { type: "json" };
 
@@ -71,6 +73,32 @@ const {
 
 app.get("/db", (req, res) => {
   res.sendFile(__dirname + "/products_db.json");
+});
+
+app.post("/generate_comment", async (req, res) => {
+  const comment = req.body.comment;
+  const gen_language = req.body.gen_language;
+
+  let systemContent = form_system_to_generate_random_product_comment(
+    products,
+    gen_language,
+    comment,
+    100
+  );
+
+  console.log(`Generate comment in ${gen_language}`);
+
+  try {
+    const generated_comment = await runChatCompletion({
+      messages: [{ role: "system", content: systemContent }],
+    });
+    console.log("Response from runChatCompletion..");
+    console.log(generated_comment);
+    res.send({ data: generated_comment });
+  } catch (err) {
+    console.log(err);
+    res.send(new Error(err));
+  }
 });
 
 app.post("/answer_questions", async (req, res) => {

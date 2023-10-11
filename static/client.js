@@ -75,7 +75,9 @@ document
     emailPanel.innerHTML = ""; // clear t
     console.log(`Calling /write_emails with ${JSON.stringify(data)}`);
     // Post to ask_question endpoint and handle the response
-    document.querySelector("#commentForm .loader").classList.remove("hide");
+    document
+      .querySelector("#commentForm .output .loader")
+      .classList.remove("hide");
     postData("/write_emails", data)
       .then((response) => {
         const res = response?.data;
@@ -87,11 +89,60 @@ document
         console.error("Error:", error);
       })
       .finally(() => {
-        document.querySelector("#commentForm .loader").classList.add("hide");
+        document
+          .querySelector("#commentForm .output .loader")
+          .classList.add("hide");
       });
   });
 
-document.getElementById("clear").addEventListener("click", function (event) {
-  const chatPanel = document.getElementById("chatPanel");
-  chatPanel.innerHTML = "";
-});
+document
+  .getElementById("chat_clear")
+  .addEventListener("click", function (event) {
+    const chatPanel = document.getElementById("chatPanel");
+    chatPanel.innerHTML = "";
+  });
+
+document
+  .getElementById("comment_clear")
+  .addEventListener("click", function (event) {
+    const commentPanel = document.getElementById("comment");
+    commentPanel.innerText = "";
+  });
+
+document
+  .getElementById("generate_comment_anchor")
+  .addEventListener("click", function (event) {
+    const comment = document.getElementById("comment").value;
+    const gen_languageELe = document.getElementById("gen_language");
+
+    const gen_language = gen_languageELe.selectedOptions[0].value;
+
+    console.log(`Genereate comment in ` + gen_language);
+
+    const data = {
+      comment,
+      gen_language,
+    };
+
+    document
+      .querySelector("#commentForm .input .loader")
+      .classList.remove("hide");
+
+    document.getElementById("comment").value = "";
+
+    postData("/generate_comment", data)
+      .then((response) => {
+        const res = response?.data;
+        if (res) {
+          document.getElementById("comment").value = res;
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        document
+          .querySelector("#commentForm .input .loader")
+          .classList.add("hide");
+      });
+  });

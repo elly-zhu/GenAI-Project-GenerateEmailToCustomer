@@ -49,7 +49,7 @@ function get_product_relevant_info(products, userInput) {
   // remove duplicates in the list
   relevant_products = [...new Set(relevant_products)];
 
-  return relevant_products, same_category_products;
+  return { relevant_products, same_category_products };
 }
 
 export function form_assistant_content_about_product(

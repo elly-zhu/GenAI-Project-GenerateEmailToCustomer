@@ -69,7 +69,7 @@ export function form_assistant_content_about_product(
 ) {
   userInput = userInput.replace("?", "");
 
-  const relevantInfo = get_product_relevant_info(products, userInput);
+  let relevantInfo = get_product_relevant_info(products, userInput);
 
   // NOTE: THIS CUTS THE RELEVANT DATA, IT WILL AFFECT THE ACCURACY, THE REASON FOR THIS IS TO LIMIT THE TOKEN USED
   // YOU COULD INCREASE THIS LIMIT

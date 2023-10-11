@@ -34,6 +34,7 @@ function get_product_relevant_info(products, userInput) {
   const product_name_list = get_product_names(products);
   const category_key_words = [];
   let relevant_products = [];
+  console.log({ userInput });
   for (let product_name of product_name_list) {
     if (userInput.includes(product_name)) {
       relevant_products.push(products[product_name]);
@@ -49,7 +50,16 @@ function get_product_relevant_info(products, userInput) {
   // remove duplicates in the list
   relevant_products = [...new Set(relevant_products)];
 
-  return { relevant_products, same_category_products };
+  const relevantInfo = `the relevant informations: ${JSON.stringify(
+    relevant_products
+  )} ${
+    same_category_products && same_category_products.length > 1
+      ? ", and other products in the same category are " +
+        same_category_products.join(", ")
+      : "."
+  }`;
+
+  return relevantInfo;
 }
 
 export function form_assistant_content_about_product(
@@ -59,22 +69,14 @@ export function form_assistant_content_about_product(
 ) {
   userInput = userInput.replace("?", "");
 
-  const { relevant_products, same_category_products } =
-    get_product_relevant_info(products, userInput);
-
-  let res = `the relavent informations: ${JSON.stringify(relevant_products)} ${
-    same_category_products && same_category_products.length > 1
-      ? ", and other products in the same category are " +
-        same_category_products.join(", ")
-      : "."
-  }`;
+  let relevantInfo = get_product_relevant_info(products, userInput);
 
   // NOTE: THIS CUTS THE RELEVANT DATA, IT WILL AFFECT THE ACCURACY, THE REASON FOR THIS IS TO LIMIT THE TOKEN USED
   // YOU COULD INCREASE THIS LIMIT
-  res = res.substring(0, maxLength);
+  relevantInfo = relevantInfo.substring(0, maxLength);
   console.log(">>>>");
-  console.log(res);
-  return res;
+  console.log(relevantInfo);
+  return relevantInfo;
 }
 
 ```
@@ -112,17 +114,18 @@ export function form_system_to_generate_random_product_comment(
   // if there is a user input, use that, otherwise, use a random product name as a base
 
   const base_product =
-    userInput && userInput.length > 2
+    userInput && userInput.trim().length > 2
       ? userInput
       : get_random_product_name(products);
 
-  const random_product_info = get_product_relevant_info(products, base_product);
+  const relevantInfo = get_product_relevant_info(products, base_product);
 
   return `
     The following text is the products' descriptions 
-    ${random_product_info}, 
+    ${relevantInfo}, 
     Please generate a ${maxWordLength} words comment about the products in language ${language}.`;
 }
+
 ```
 
 ### Email Generator Examples

@@ -29,7 +29,9 @@ function get_product_relevant_info(products, userInput) {
   const product_name_list = get_product_names(products);
   const category_key_words = [];
   let relevant_products = [];
-  console.log({ userInput });
+
+  console.log({ base: userInput });
+
   for (let product_name of product_name_list) {
     if (userInput.includes(product_name)) {
       relevant_products.push(products[product_name]);
@@ -101,7 +103,7 @@ export function form_system_to_generate_random_product_comment(
   return `
     The following text is the products' descriptions 
     ${relevantInfo}, 
-    Please generate a ${maxWordLength} words comment about the products in language ${language}.`;
+    Please generate a ${maxWordLength} words as a customer comment about the products in language ${language}.`;
 }
 
 export function form_system_to_perform_sentiment_analysis(comment) {

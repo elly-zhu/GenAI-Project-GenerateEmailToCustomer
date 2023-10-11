@@ -30,8 +30,7 @@ The project has built-in helper functions to generate relevant and meaningful pr
  - Analyze the user-provided comment; find the product in the product database JSON file that matches the user's commented product; provide the relevant information to ChatGPT
 ```javascript
 
-export function form_assistant_content_about_product(products, userInput) {
-  userInput = userInput.replace("?", "");
+function get_product_relevant_info(products, userInput) {
   const product_name_list = get_product_names(products);
   const category_key_words = [];
   let relevant_products = [];
@@ -46,13 +45,25 @@ export function form_assistant_content_about_product(products, userInput) {
     products,
     category_key_words
   ).map((e) => e.name);
-  console.log(same_category_products);
 
   // remove duplicates in the list
   relevant_products = [...new Set(relevant_products)];
 
+  return { relevant_products, same_category_products };
+}
+
+export function form_assistant_content_about_product(
+  products,
+  userInput,
+  maxLength = 1000
+) {
+  userInput = userInput.replace("?", "");
+
+  const { relevant_products, same_category_products } =
+    get_product_relevant_info(products, userInput);
+
   let res = `the relavent informations: ${JSON.stringify(relevant_products)} ${
-    same_category_products.length > 1
+    same_category_products && same_category_products.length > 1
       ? ", and other products in the same category are " +
         same_category_products.join(", ")
       : "."
@@ -60,15 +71,9 @@ export function form_assistant_content_about_product(products, userInput) {
 
   // NOTE: THIS CUTS THE RELEVANT DATA, IT WILL AFFECT THE ACCURACY, THE REASON FOR THIS IS TO LIMIT THE TOKEN USED
   // YOU COULD INCREASE THIS LIMIT
-  res = res.substring(0, 1000);
+  res = res.substring(0, maxLength);
   console.log(">>>>");
   console.log(res);
-  return res;
-}
-
-export function form_assistant_content_about_response_language(language) {
-  const res = `Please provide answer in language ${language}`;
-
   return res;
 }
 
@@ -93,12 +98,39 @@ export function form_system_to_write_email_subject(language, wordlimit = 150) {
     <p> {the generated closing} </p>
   </div>`;
 }
+
+```
+- Ask the system to generate comment about products in chosen language
+
+```javascript
+export function form_system_to_generate_random_product_comment(
+  products,
+  language,
+  userInput = undefined,
+  maxWordLength = 100
+) {
+  // if there is a user input, use that, otherwise, use a random product name as a base
+
+  const base_product =
+    userInput && userInput.length > 2
+      ? userInput
+      : get_random_product_name(products);
+
+  const random_product_info = get_product_relevant_info(products, base_product);
+
+  return `
+    The following text is the products' descriptions 
+    ${random_product_info}, 
+    Please generate a ${maxWordLength} words comment about the products in language ${language}.`;
+}
 ```
 
 ### Email Generator Examples
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/24d58783-b604-42a7-8657-f86e82b3102f)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/ae4876af-28d0-41ce-8a4d-b6035bc4eded)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a6a92118-a2c3-453a-8d8e-0fa01bdd1bd8)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/0c7ffbf8-46bd-4caa-a441-3152cc86e20d)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/2a807f3f-d15a-4cec-b829-583a13237d07)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/2e7ef86c-bb81-42a4-89dc-073dc5ccaae3)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/e45d279d-d9ca-4a19-b5ff-b01b0b4142ad)
+
 
 ### Chatbot Examples
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a4a8e1dd-3bbc-4486-abb0-b909cc25935e)

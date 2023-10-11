@@ -126,9 +126,11 @@ export function form_system_to_generate_random_product_comment(
 ```
 
 ### Email Generator Examples
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/24d58783-b604-42a7-8657-f86e82b3102f)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/ae4876af-28d0-41ce-8a4d-b6035bc4eded)
-![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a6a92118-a2c3-453a-8d8e-0fa01bdd1bd8)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/0c7ffbf8-46bd-4caa-a441-3152cc86e20d)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/2a807f3f-d15a-4cec-b829-583a13237d07)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/2e7ef86c-bb81-42a4-89dc-073dc5ccaae3)
+![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/e45d279d-d9ca-4a19-b5ff-b01b0b4142ad)
+
 
 ### Chatbot Examples
 ![image](https://github.com/elly-zhu/GenAI-Project-GenerateEmailToCustomer/assets/22209839/a4a8e1dd-3bbc-4486-abb0-b909cc25935e)
